@@ -1,0 +1,62 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  // Neon requires connection pooling for serverless:
+  directUrl = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  AGENT
+}
+
+enum Stage {
+  PLANTED
+  GROWING
+  READY
+  HARVESTED
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String
+  role      Role     @default(AGENT)
+  fields    Field[]  @relation("AgentFields")
+  fieldUpdates FieldUpdate[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Field {
+  id           String        @id @default(cuid())
+  name         String
+  cropType     String
+  plantingDate DateTime
+  stage        Stage         @default(PLANTED)
+  location     String?
+  areaAcres    Float?
+  agent        User?         @relation("AgentFields", fields: [agentId], references: [id], onDelete: SetNull)
+  agentId      String?
+  updates      FieldUpdate[]
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+}
+
+model FieldUpdate {
+  id        String   @id @default(cuid())
+  field     Field    @relation(fields: [fieldId], references: [id], onDelete: Cascade)
+  fieldId   String
+  stage     Stage
+  notes     String?
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  String
+  createdAt DateTime @default(now())
+}
