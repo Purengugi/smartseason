@@ -2,7 +2,10 @@
 
 A Full-Stack Web Application for tracking crop progress across multiple fields during a growing season. Built as a Full-Stack Developer Technical Assessment for the **Shamba Records Software Engineer Intern** position.
 
+---
+
 **Live Demo:** https://smartseason-six.vercel.app/
+
 ---
 
 ## Tech Stack
