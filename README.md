@@ -1,9 +1,8 @@
 # 🌱 SmartSeason - Field Monitoring System
 
-A full-stack web application for tracking crop progress across multiple fields during a growing season. Built as a take-home technical assessment for the **Shamba Records Software Engineer Intern** position.
+A Full-Stack Web Application for tracking crop progress across multiple fields during a growing season. Built as a Full-Stack Developer Technical Assessment for the **Shamba Records Software Engineer Intern** position.
 
-**Live Demo:** link..............
-
+**Live Demo:** https://smartseason-six.vercel.app/
 ---
 
 ## Tech Stack
@@ -229,5 +228,3 @@ prisma/
 - Map view of fields using MapLibre/Leaflet
 - Export to CSV/PDF for offline coordinators
 - PWA support for field agents with spotty connectivity
-
----
