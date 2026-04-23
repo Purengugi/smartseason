@@ -4,7 +4,7 @@ A Full-Stack Web Application for tracking crop progress across multiple fields d
 
 ---
 
-**Live Demo:** https://smartseason-six.vercel.app/
+**Live Demo:** https://smartseason-six.vercel.app
 
 ---
 
